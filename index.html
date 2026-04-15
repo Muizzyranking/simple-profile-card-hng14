@@ -88,6 +88,7 @@
 
       figure {
         flex-shrink: 0;
+        margin: 0;
       }
 
       figure img[data-testid="test-user-avatar"] {
@@ -97,6 +98,14 @@
         object-fit: cover;
         border: 3px solid var(--surface);
         display: block;
+      }
+
+      figcaption {
+        font-family: var(--font-code);
+        font-size: 11px;
+        color: var(--ink-3);
+        text-align: center;
+        margin-top: 4px;
       }
 
       .header-text {
@@ -268,12 +277,22 @@
         }
       }
 
-      .list-item {
+      /* Hobbies and Dislikes list styling */
+      .hobbies-list,
+      .dislikes-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .hobbies-list li,
+      .dislikes-list li {
         padding: 12px 0;
         border-bottom: 0.5px solid var(--border);
       }
 
-      .list-item:last-child {
+      .hobbies-list li:last-child,
+      .dislikes-list li:last-child {
         border-bottom: none;
         padding-bottom: 0;
       }
@@ -297,7 +316,7 @@
         flex-shrink: 0;
       }
 
-      .list-dislike .list-item-name::before {
+      .dislikes-list .list-item-name::before {
         background: #c0a060;
       }
 
@@ -335,7 +354,7 @@
     </h2>
 
     <article data-testid="test-profile-card" aria-label="User profile card">
-      <div class="card-header-band">
+      <header class="card-header-band">
         <figure>
           <img
             data-testid="test-user-avatar"
@@ -344,6 +363,7 @@
             width="100"
             height="100"
           />
+          <figcaption>MuizzyRanking</figcaption>
         </figure>
         <div class="header-text">
           <div class="username-row">
@@ -354,7 +374,7 @@
           </div>
           <p class="handle">@MuizzyRanking</p>
         </div>
-      </div>
+      </header>
 
       <div class="card-body">
         <p data-testid="test-user-bio">
@@ -474,15 +494,15 @@
             aria-labelledby="hobbies-heading"
           >
             <p class="section-label" id="hobbies-heading">Things I like</p>
-            <div>
-              <div class="list-item">
+            <ul class="hobbies-list">
+              <li>
                 <p class="list-item-name">Dad jokes</p>
                 <p class="list-item-example">
                   Why did the developer go broke? Because he used up all his
                   cache.
                 </p>
-              </div>
-              <div class="list-item">
+              </li>
+              <li>
                 <p class="list-item-name">Movies</p>
                 <p class="list-item-example">
                   Marvel, DC, animations, sci-fi — if there's a superhero in it,
@@ -496,94 +516,93 @@
                   <span class="tag">Invincible</span>
                   <span class="tag">Ghibli</span>
                 </div>
-              </div>
-              <div class="list-item">
+              </li>
+              <li>
                 <p class="list-item-name">Open source</p>
                 <p class="list-item-example">
                   Reading other people's code so I feel better about my own.
                 </p>
-              </div>
-              <div class="list-item">
+              </li>
+              <li>
                 <p class="list-item-name">Gaming</p>
                 <p class="list-item-example">
                   Genre is not a barrier. If it's fun, I'm in.
                 </p>
-              </div>
-              <div class="list-item">
+              </li>
+              <li>
                 <p class="list-item-name">Music</p>
                 <p class="list-item-example">
                   If it sounds good, I'll listen to it. Genre is just a label.
                 </p>
-              </div>
-              <div class="list-item">
+              </li>
+              <li>
                 <p class="list-item-name">Config tinkering</p>
                 <p class="list-item-example">
                   The dotfiles are never done. They are only abandoned.
                 </p>
-              </div>
-              <div class="list-item">
+              </li>
+              <li>
                 <p class="list-item-name">Sleeping</p>
                 <p class="list-item-example">Don't we all?</p>
-              </div>
-            </div>
+              </li>
+            </ul>
           </section>
 
           <section
             data-testid="test-user-dislikes"
             aria-labelledby="dislikes-heading"
-            class="list-dislike"
           >
             <p class="section-label" id="dislikes-heading">Things I dislike</p>
-            <div>
-              <div class="list-item">
+            <ul class="dislikes-list">
+              <li>
                 <p class="list-item-name">Unnecessary meetings</p>
                 <p class="list-item-example">
                   This could have been a WhatsApp message.
                 </p>
-              </div>
-              <div class="list-item">
+              </li>
+              <li>
                 <p class="list-item-name">Inconsistent APIs</p>
                 <p class="list-item-example">
                   user_id here, userId there, and missing entirely on the third
                   endpoint.
                 </p>
-              </div>
-              <div class="list-item">
+              </li>
+              <li>
                 <p class="list-item-name">Poor documentation</p>
                 <p class="list-item-example">
                   "Just read the source code." Yes. Helpful. Thank you.
                 </p>
-              </div>
-              <div class="list-item">
+              </li>
+              <li>
                 <p class="list-item-name">Lagos traffic</p>
                 <p class="list-item-example">No joke here. Just pain.</p>
-              </div>
-              <div class="list-item">
+              </li>
+              <li>
                 <p class="list-item-name">Tabs vs spaces</p>
                 <p class="list-item-example">
                   The answer is spaces. This is not a debate.
                 </p>
-              </div>
-              <div class="list-item">
+              </li>
+              <li>
                 <p class="list-item-name">Slow internet</p>
                 <p class="list-item-example">
-                  uv add on a bad connection is a spiritual experience. Not
-                  a good one.
+                  uv add on a bad connection is a spiritual experience. Not a
+                  good one.
                 </p>
-              </div>
-              <div class="list-item">
+              </li>
+              <li>
                 <p class="list-item-name">Vague requirements</p>
                 <p class="list-item-example">
                   "Make it pop." — an actual brief. Pop how? Pop where?
                 </p>
-              </div>
-              <div class="list-item">
+              </li>
+              <li>
                 <p class="list-item-name">Overengineering</p>
                 <p class="list-item-example">
                   You do not need a microservice to store a username.
                 </p>
-              </div>
-            </div>
+              </li>
+            </ul>
           </section>
         </div>
       </div>
