@@ -1,0 +1,334 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+:root {
+  --accent: #9fbf6b;
+  --accent-light: #eef4e3;
+  --accent-dark: #5a7a2a;
+  --accent-text: #3d5a18;
+  --font-display: "DM Serif Display", serif;
+  --font-body: "Inter", sans-serif;
+  --font-code: "JetBrains Mono", monospace;
+  --ink: #1a1a1a;
+  --ink-2: #4a4a4a;
+  --ink-3: #7a7a7a;
+  --surface: #ffffff;
+  --surface-2: #f7f7f5;
+  --border: rgba(0, 0, 0, 0.09);
+  --border-strong: rgba(0, 0, 0, 0.15);
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-xl: 20px;
+}
+
+body {
+  font-family: var(--font-body);
+  background: #f4f4f0;
+  min-height: 100vh;
+  padding: 2rem 1rem;
+}
+
+article[data-testid="test-profile-card"] {
+  background: var(--surface);
+  border: 0.5px solid var(--border-strong);
+  border-radius: var(--radius-xl);
+  max-width: 760px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+/* ── Header band ── */
+.card-header-band {
+  background: var(--accent-light);
+  border-bottom: 0.5px solid rgba(159, 191, 107, 0.3);
+  padding: 2rem 2rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+@media (min-width: 560px) {
+  .card-header-band {
+    flex-direction: row;
+    align-items: flex-end;
+  }
+}
+
+figure {
+  flex-shrink: 0;
+  margin: 0;
+}
+
+figure img[data-testid="test-user-avatar"] {
+  width: 100px;
+  height: 100px;
+  border-radius: var(--radius-md);
+  object-fit: cover;
+  border: 3px solid var(--surface);
+  display: block;
+}
+
+figcaption {
+  font-family: var(--font-code);
+  font-size: 11px;
+  color: var(--ink-3);
+  text-align: center;
+  margin-top: 4px;
+}
+
+.header-text {
+  padding-bottom: 1.25rem;
+  flex: 1;
+}
+
+.username-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 4px;
+}
+
+h2[data-testid="test-user-name"] {
+  font-family: var(--font-display);
+  font-size: 26px;
+  font-weight: 400;
+  color: var(--ink);
+  letter-spacing: -0.3px;
+  line-height: 1.1;
+}
+
+.role-pill {
+  font-size: 11px;
+  font-weight: 500;
+  font-family: var(--font-body);
+  background: var(--accent);
+  color: var(--accent-text);
+  padding: 3px 10px;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+
+.handle {
+  font-family: var(--font-code);
+  font-size: 12px;
+  color: var(--accent-dark);
+}
+
+/* ── Card body ── */
+.card-body {
+  padding: 1.75rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+p[data-testid="test-user-bio"] {
+  font-size: 15px;
+  color: var(--ink-2);
+  line-height: 1.8;
+}
+
+p[data-testid="test-user-bio"] em {
+  font-family: var(--font-display);
+  font-style: italic;
+  color: var(--ink-3);
+  font-size: 14px;
+}
+
+/* ── Epoch time ── */
+.time-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--surface-2);
+  border: 0.5px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 8px 14px;
+  width: fit-content;
+}
+
+.time-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent);
+  flex-shrink: 0;
+}
+
+.time-label {
+  font-size: 11px;
+  color: var(--ink-3);
+}
+
+time[data-testid="test-user-time"] {
+  font-family: var(--font-code);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--ink);
+}
+
+.divider {
+  height: 0.5px;
+  background: var(--border);
+  margin: 0 -2rem;
+}
+
+nav[data-testid="test-user-social-links"] {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.section-label {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  margin-bottom: 8px;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+nav ul li a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  font-family: var(--font-body);
+  color: var(--ink-2);
+  text-decoration: none;
+  padding: 6px 14px;
+  border-radius: var(--radius-sm);
+  border: 0.5px solid var(--border-strong);
+  background: var(--surface);
+  transition:
+    border-color 0.15s,
+    background 0.15s,
+    color 0.15s;
+}
+
+nav ul li a:hover,
+nav ul li a:focus-visible {
+  background: var(--accent-light);
+  border-color: var(--accent);
+  color: var(--accent-text);
+  outline: none;
+}
+
+nav ul li a:focus-visible {
+  box-shadow: 0 0 0 2px var(--accent);
+}
+
+nav ul li a svg {
+  flex-shrink: 0;
+  opacity: 0.7;
+}
+
+/* ── Lists grid ── */
+.lists-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 1.5rem;
+}
+
+@media (max-width: 500px) {
+  .lists-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Hobbies and Dislikes list styling */
+.hobbies-list,
+.dislikes-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.hobbies-list li,
+.dislikes-list li {
+  padding: 12px 0;
+  border-bottom: 0.5px solid var(--border);
+}
+
+.hobbies-list li:last-child,
+.dislikes-list li:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.list-item-name {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--ink);
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin-bottom: 4px;
+}
+
+.list-item-name::before {
+  content: "";
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--accent);
+  flex-shrink: 0;
+}
+
+.dislikes-list .list-item-name::before {
+  background: #c0a060;
+}
+
+.list-item-example {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 13px;
+  color: var(--ink-3);
+  line-height: 1.6;
+  padding-left: 12px;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  padding-left: 12px;
+  margin-top: 5px;
+}
+
+.tag {
+  font-size: 10px;
+  font-weight: 500;
+  font-family: var(--font-code);
+  background: var(--accent-light);
+  color: var(--accent-text);
+  padding: 2px 7px;
+  border-radius: 4px;
+}
